@@ -1,0 +1,15 @@
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        if n <= 3:
+            return n
+        prev = 3
+        first = 2
+        climb = 0
+        for i in range(3, n):
+            climb = prev + first
+            first = prev
+            prev = climb
+        return climb
+
+
+        

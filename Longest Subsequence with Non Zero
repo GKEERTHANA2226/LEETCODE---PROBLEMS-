@@ -1,0 +1,13 @@
+class Solution:
+    def longestSubsequence(self, nums: List[int]) -> int:
+        count = 0
+        non_zero = False
+        for num in nums:
+            count ^= num
+            if num != 0:
+                non_zero = True
+        if not non_zero:
+            return 0
+        return len(nums) if count > 0 else len(nums)-1
+
+        

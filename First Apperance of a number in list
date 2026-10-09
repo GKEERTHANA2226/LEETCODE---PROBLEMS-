@@ -1,0 +1,19 @@
+import sys
+input = sys.stdin. readline
+
+def solve (n, arr, target) :
+# ===== Write Your Logic Here
+if not arr:
+return 0
+for i in range (n) :
+if i == target:
+break
+return arr. index (target)
+
+def main() :
+n = int (input ())
+arr = list (map(int, input () .split () ) )
+target = int (input () )
+print (solve(n, arr, target) )
+
+main()

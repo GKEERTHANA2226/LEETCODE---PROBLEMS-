@@ -1,0 +1,15 @@
+class Solution:
+    def maxSumOfSquares(self, num: int, sum: int) -> str:
+        res = []
+        if sum < 0 or sum > 9 * num:
+            return ""
+        for i in range(num):
+            max_val = min(9, sum - (num - 1 - i))
+            ans = min(9, sum)
+            res.append(str(ans))
+            sum -= ans
+        if sum > 0:
+            return ""
+        return "".join(res)
+
+        

@@ -1,0 +1,14 @@
+class Solution:
+    def countDaysTogether(self, arriveAlice: str, leaveAlice: str, arriveBob: str, leaveBob: str) -> int:
+        months = [31,28,31,30,31,30,31,31,30,31,30,31]
+        def date_number(date: str) -> int:
+            month, day = map(int,date.split("-"))
+            return sum(months[:month-1]) + day
+        alice_start = date_number(arriveAlice)
+        alice_end = date_number(leaveAlice)
+        bob_start = date_number(arriveBob)
+        bob_end = date_number(leaveBob)
+
+        overlap_start = max(alice_start, bob_start)
+        overlap_end = min(alice_end, bob_end)
+        return max(0, (overlap_end - overlap_start) + 1)

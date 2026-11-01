@@ -1,0 +1,5 @@
+select p.product_name, sum(O.unit) as unit from Products p
+join Orders O on p.product_id = O.product_id 
+where O.order_date like '2020-02%' 
+group by p.product_name having sum(O.unit) >= 100
+order by O.unit desc;

@@ -1,0 +1,19 @@
+class Solution:
+    def compress(self, chars: list[str]) -> int:
+        letter = 0
+        num = 0
+        while letter < len(chars):
+            char = chars[letter]
+            count = 0
+            while letter < len(chars) and chars[letter] == char:
+                letter += 1
+                count += 1
+            chars[num] = char
+            num += 1
+            if count > 1:
+                for digit in str(count):
+                    chars[num] = digit
+                    num += 1
+        return num
+        
+        

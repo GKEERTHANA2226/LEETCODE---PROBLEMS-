@@ -1,0 +1,12 @@
+class Solution:
+    def climbStairs(self, n: int, costs: List[int]) -> int:
+        depth = [float('inf')] * (n + 1)
+        depth[0] = 0
+        costs = [0] + costs
+        
+        for j in range(1, n + 1):
+            for i in range(max(0, j - 3), j):
+                depth[j] = min(depth[j], depth[i] + costs[j] + (j - i) ** 2)
+                
+        return depth[n]
+        
